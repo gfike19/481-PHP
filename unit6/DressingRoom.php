@@ -1,11 +1,10 @@
 <?php
 
-include ("Customer.php");
-include ("Util.php");
+include_once ("Customer.php");
 
 class DressingRoom {
 
-    private $numofRooms;
+    public $numofRooms;
     function __construct($numofRooms = 3)
     {
         $this->numofRooms = $numofRooms;
@@ -17,13 +16,23 @@ class DressingRoom {
         if($this->numofRooms != 0) {
             $this->numofRooms--;
             $numOfItems = $cust->numOfItems;
-            $u = new Util();
-            $numOfMins = $u->getRandomNum() % 3;
+
+            $numOfMins = $this->getRandomNum() % 3;
+            echo "Customer enters room at: ".date("H:i:s")."<br>";
             sleep(($numOfMins * $min) * $numOfItems);
             $this->numofRooms++;
-        } else {
+            echo "Customer exits room at: ".date("H:i:s")."<br>";
+        } 
+        if($this->numofRooms == 0) {
+            echo "Waiting for room<br>";
             sleep($min);
         }
+    }
+
+    function getRandomNum() {
+        $bytes = random_bytes(1);
+        $rNum = hexdec(bin2hex($bytes));
+        return $rNum;
     }
 }
 ?>

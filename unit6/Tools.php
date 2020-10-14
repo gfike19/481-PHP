@@ -1,5 +1,5 @@
 <?php
-class Util {
+class Tools {
 
     function getRandomNum() {
         $bytes = random_bytes(1);

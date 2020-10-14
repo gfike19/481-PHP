@@ -1,8 +1,7 @@
 <?php
 
-include("Util.php");
-$u = new Util();
-$r = $u->getRandomNum() % 20;
-echo $r;
+include ("Scenario.php");
 
+$s = new Scenario(3,6,3);
+$s->run();
 ?>
