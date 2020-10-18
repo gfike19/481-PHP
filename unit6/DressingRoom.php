@@ -15,18 +15,18 @@ class DressingRoom {
         
         if($this->numofRooms != 0) {
             $this->numofRooms--;
-            $numOfItems = $cust->numOfItems;
-
+            echo "Customer has ".$cust->numOfItems." items<br>";
             $numOfMins = $this->getRandomNum() % 3;
-            echo "Customer enters room at: ".date("H:i:s")."<br>";
-            sleep(($numOfMins * $min) * $numOfItems);
-            $this->numofRooms++;
-            echo "Customer exits room at: ".date("H:i:s")."<br>";
+            echo $numOfMins;
+            $enterTime = date("H:i:s");
+            echo "Customer will enter room at: ".$enterTime."<br>";
+            // $waitTime = settype(($numOfMins * $min) * $cust->numOfItems, );
+            $exitDate = strtotime(settype($waitTime, "string"), $enterTime);
+            echo "Customer will exit at ".$exitDate;
+            // $this->numofRooms++;
+            // echo "Customer exits room at: ".date("H:i:s")."<br>";
         } 
-        if($this->numofRooms == 0) {
-            echo "Waiting for room<br>";
-            sleep($min);
-        }
+
     }
 
     function getRandomNum() {
