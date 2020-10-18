@@ -3,12 +3,9 @@
 class Customer {
     public $numOfItems;
 
-    function __construct($numOfItems="")
+    function __construct($numOfItems=0)
     {
-        if($numOfItems == "") {
-            $this->numOfItems = $this->getRandomNum() % 20;
-        } 
-        $this->$numOfItems = $numOfItems;
+        $this->numOfItems = $numOfItems;
     }
 
     function get_numOfItems () {

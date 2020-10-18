@@ -1,7 +1,15 @@
 <?php
+include "./DressingRoom.php";
 
-include ("Scenario.php");
+$dr = new DressingRoom();
+// $rNum = getRandomNum();
+$cust = new Customer(getRandomNum() % 20);
 
-$s = new Scenario(3,6,3);
-$s->run();
+$dr->requestRoom($cust);
+
+function getRandomNum() {
+    $bytes = random_bytes(1);
+    $rNum = hexdec(bin2hex($bytes));
+    return $rNum;
+}
 ?>
