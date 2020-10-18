@@ -2,7 +2,7 @@
 include "./DressingRoom.php";
 
 $dr = new DressingRoom();
-// $rNum = getRandomNum();
+
 $cust = new Customer(getRandomNum() % 20);
 
 $dr->requestRoom($cust);

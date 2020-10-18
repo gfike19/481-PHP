@@ -1,8 +1,9 @@
 <?php
 
-include_once ("Customer.php");
+include_once("Customer.php");
 
-class DressingRoom {
+class DressingRoom
+{
 
     public $numofRooms;
     function __construct($numofRooms = 3)
@@ -10,29 +11,23 @@ class DressingRoom {
         $this->numofRooms = $numofRooms;
     }
 
-    function requestRoom(Customer $cust) {
-        $min = 60;
-        
-        if($this->numofRooms != 0) {
-            $this->numofRooms--;
-            echo "Customer has ".$cust->numOfItems." items<br>";
-            $numOfMins = $this->getRandomNum() % 3;
-            echo $numOfMins;
-            $enterTime = date("H:i:s");
-            echo "Customer will enter room at: ".$enterTime."<br>";
-            // $waitTime = settype(($numOfMins * $min) * $cust->numOfItems, );
-            $exitDate = strtotime(settype($waitTime, "string"), $enterTime);
-            echo "Customer will exit at ".$exitDate;
-            // $this->numofRooms++;
-            // echo "Customer exits room at: ".date("H:i:s")."<br>";
-        } 
-
+    function requestRoom(Customer $cust)
+    {
+        // echo "Customer has ".$cust->numOfItems." items<br>";
+        $numOfMins = $this->getRandomNum() % 4;
+        $enterTime = date("H:i:s");
+        $enterTime->add(new DateInterval('PT', $numOfMins.'M'));
+        // echo "Enter time is: " . $enterTime, "<br>"; 
+        // settype($waitTime, "date interval");
+        // echo "Wait time is: " . $waitTime . "<br>";
+        // echo "Customer will enter room at: ".$enterTime."<br>";
+        // echo "Customer will exit at ".$exitDate;
     }
 
-    function getRandomNum() {
+    function getRandomNum()
+    {
         $bytes = random_bytes(1);
         $rNum = hexdec(bin2hex($bytes));
         return $rNum;
     }
 }
-?>
