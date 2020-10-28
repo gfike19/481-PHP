@@ -1,6 +1,6 @@
 <?php
 
-class Customer extends Thread {
+class Customer {
     public $numOfItems;
 
     function __construct($numOfItems=0)

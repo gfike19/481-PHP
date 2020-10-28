@@ -26,8 +26,4 @@ function bubbleSort($arr) {
     }
     return $arr;
 }
-
-$arr = [6501, 9503, 7557, 5535, 5601, 9001, 9888, 8801, 9767, 7815];
-$newArr = bubbleSort($arr);
-echo var_dump($newArr);
 ?>
